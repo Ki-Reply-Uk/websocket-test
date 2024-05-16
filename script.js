@@ -5,8 +5,10 @@ socket.onopen = function() {
 };
 
 socket.onmessage = function(event) {
-    console.log('Message from server: ', event.data);
-    displayMessage(event.data);
+    if (event.data === "refresh") {
+        console.log('Refreshing the page');
+        location.reload();
+    }
 };
 
 socket.onclose = function() {
@@ -17,11 +19,4 @@ function sendMessage() {
     const message = 'Hello, server!';
     socket.send(message);
     console.log('Message sent: ', message);
-}
-
-function displayMessage(message) {
-    const messageDiv = document.getElementById('serverMessages');
-    const newMessage = document.createElement('p');
-    newMessage.textContent = message;
-    messageDiv.appendChild(newMessage);
 }
