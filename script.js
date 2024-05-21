@@ -17,8 +17,14 @@ socket.onclose = function() {
     console.log('WebSocket connection closed');
 };
 
-function sendMessage() {
-    const message = 'Hello, server!';
+function sendStart() {
+    const message = 'Game Started';
+    socket.send(message);
+    console.log('Message sent: ', message);
+}
+
+function sendReset() {
+    const message = 'New Game';
     socket.send(message);
     console.log('Message sent: ', message);
 }
