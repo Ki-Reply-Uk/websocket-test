@@ -5,9 +5,10 @@ socket.onopen = function() {
 };
 
 socket.onmessage = function(event) {
-    if (event.data === "refresh") {
-        console.log('Refreshing the page');
-        location.reload();
+    console.log('Message from server: ', event.data);
+    if (event.data === "hard_refresh") {
+        console.log('Performing hard refresh');
+        location.reload(true); // Forces a hard refresh
     }
 };
 
