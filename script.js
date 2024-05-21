@@ -9,6 +9,7 @@ socket.onmessage = function(event) {
     if (event.data === "hard_refresh") {
         console.log('Performing hard refresh');
         location.reload(true); // Forces a hard refresh
+        console.log('Hard refresh complete');
     }
 };
 
